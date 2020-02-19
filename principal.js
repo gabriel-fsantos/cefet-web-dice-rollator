@@ -1,6 +1,5 @@
 // Faça seu exercício neste arquivo
 
-
 // Alguns elementos importantes na página (index.html):
 // #rolar: Botão rolar
 //	 - você deve atribuir um handler de evento a ele para fazer o cálculo da rolagem dos dados
@@ -17,7 +16,7 @@ function rolar(){
     var dados = [];
     dados[0] = document.getElementById("quantidadeD4").value;
     dados[1] = document.getElementById("quantidadeD6").value;
-    dados[2]= document.getElementById("quantidadeD8").value;
+    dados[2] = document.getElementById("quantidadeD8").value;
     dados[3] = document.getElementById("quantidadeD10").value;
     dados[4] = document.getElementById("quantidadeD12").value;
     dados[5] = document.getElementById("quantidadeD20").value;
@@ -55,9 +54,18 @@ function rolar(){
     }
 
     //console.log(resultado);
-    var string = ""
-    for(i of resultado){
-        string.concat(i, "+ ");
+    var string = "";
+    var soma = 0;
+    for(var i=0; i<resultado.length; i++){
+        if ((i+1)==resultado.length){
+            string = string.concat(resultado[i], " = ");
+        }else{
+            string = string.concat(resultado[i], " + ");
+        }
+        soma += resultado[i];
     }
-    console.log(string);
+    string = string.concat(soma);
+    //console.log(string);
+
+    document.getElementById("resultado").innerHTML = string;
 }
